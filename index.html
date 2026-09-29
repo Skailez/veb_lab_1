@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/style.css">
+  <title>lab_1</title>
+</head>
+<body>
+  <table id="main-layout">
+    <thead>
+      <tr>
+        <td id="header" colspan="2">
+          <div class="student-info">
+
+            ФИО: Музяев Егор Александрович  <br>
+              Группа: P3212 <br>
+              Вариант: 12693
+
+          </div>
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="content-left">
+          <div class="form-block">
+            <form id="coordinates-form">
+              <div class="form-group">
+                <span class="form-label">Ввести X:</span>
+                <div class="radio-group">
+                <label> <input type="radio" name="x-val" value="-4">-4</label>
+                <label> <input type="radio" name="x-val" value="-3">-3</label>
+                <label> <input type="radio" name="x-val" value="-2">-2</label>
+                <label> <input type="radio" name="x-val" value="-1">-1</label>
+                <label> <input type="radio" name="x-val" value="0">0</label>
+                <label> <input type="radio" name="x-val" value="1">1</label>
+                <label> <input type="radio" name="x-val" value="2">2</label>
+                <label> <input type="radio" name="x-val" value="3">3</label>
+                <label> <input type="radio" name="x-val" value="4">4</label>
+                </div>
+              </div>
+
+            <div class="form-group">
+              <label for="y-val" class="form-label">Ввести Y:(значение от -5 до 5)</label>
+              <input type="text" name="y-val" id="y-val" placeholder="Введите число">
+              <br>
+              <span class="error-message" id="y-error"></span>
+            </div>
+
+
+            <div class="form-group">
+              <span class="form-label">Ввести R:</span>
+              <div class="checkbox-group">
+                <label><input type="checkbox" name="r-val" value="1">1</label>
+                <label><input type="checkbox" name="r-val" value="1.5">1.5</label>
+                <label><input type="checkbox" name="r-val" value="2">2</label>
+                <label><input type="checkbox" name="r-val" value="2.5">2.5</label>
+                <label><input type="checkbox" name="r-val" value="3">3</label>
+              </div>
+              <span class="error-message" id="r-error"></span>
+            </div>
+
+            <div class="form-group">
+              <input type="submit" id="submit-btn" value="Получить результат">
+            </div>
+
+            <div class="form-group">
+              <input type="button" id="clear-btn" value="Очистить таблицу">
+            </div>
+            
+            </form>
+          </div>
+
+        </td>
+        <td id="content-right">
+          <div class="canvas-block" >
+              <span class="canvas-label">Координатная область</span><br>
+          <canvas id="canvas" width="500" height="500">
+          </canvas>
+          </div>
+
+        </td>
+      </tr>
+      <tr>
+        <td id="history" colspan="2">
+          <h3>История проверок</h3>
+          
+          <div id="scroll">
+          <table  id="result-table">
+            <thead>
+              <tr>
+                <th>X</th>
+                <th>Y</th>
+                <th>R</th>
+                <th>Попадание</th>
+                <th>Время</th>
+              </tr>
+            </thead>
+            <tbody id="result-body">
+            </tbody>
+          </table>
+          </div>
+
+        </td>
+      </tr>  
+    </tbody>
+  </table>
+  <script src="script.js"></script>
+</body>
+</html>
