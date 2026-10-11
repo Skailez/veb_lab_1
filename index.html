@@ -1,111 +1,101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles/style.css">
-  <title>lab_1</title>
-</head>
-<body>
-  <table id="main-layout">
-    <thead>
-      <tr>
-        <td id="header" colspan="2">
-          <div class="student-info">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>lab_1</title>
+  </head>
+  <body>
+    <div id="main-layout">
+      <header id="header">
+        <h1>Проверка попадания точки в область</h1>
+        <p class="student-info">
+          ФИО: Музяев Егор Александрович<br />
+          Группа: P3212<br />
+          Вариант: 12693
+        </p>
+      </header>
 
-            ФИО: Музяев Егор Александрович  <br>
-              Группа: P3212 <br>
-              Вариант: 12693
+      <main id="content">
+        <section id="content-left">
+          <h2>Координаты точки и радиус</h2>
+          <form id="coordinates-form">
+            <fieldset class="form-group">
+              <legend>Введите X</legend>
 
-          </div>
-        </td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td id="content-left">
-          <div class="form-block">
-            <form id="coordinates-form">
-              <div class="form-group">
-                <span class="form-label">Ввести X:</span>
-                <div class="radio-group">
-                <label> <input type="radio" name="x-val" value="-4">-4</label>
-                <label> <input type="radio" name="x-val" value="-3">-3</label>
-                <label> <input type="radio" name="x-val" value="-2">-2</label>
-                <label> <input type="radio" name="x-val" value="-1">-1</label>
-                <label> <input type="radio" name="x-val" value="0">0</label>
-                <label> <input type="radio" name="x-val" value="1">1</label>
-                <label> <input type="radio" name="x-val" value="2">2</label>
-                <label> <input type="radio" name="x-val" value="3">3</label>
-                <label> <input type="radio" name="x-val" value="4">4</label>
-                </div>
+              <div class="radio-group">
+                <label> <input type="radio" name="x-val" value="-4" required />-4</label>
+                <label> <input type="radio" name="x-val" value="-3" />-3</label>
+                <label> <input type="radio" name="x-val" value="-2" />-2</label>
+                <label> <input type="radio" name="x-val" value="-1" />-1</label>
+                <label> <input type="radio" name="x-val" value="0" />0</label>
+                <label> <input type="radio" name="x-val" value="1" />1</label>
+                <label> <input type="radio" name="x-val" value="2" />2</label>
+                <label> <input type="radio" name="x-val" value="3" />3</label>
+                <label> <input type="radio" name="x-val" value="4" />4</label>
               </div>
-
+            </fieldset>
             <div class="form-group">
-              <label for="y-val" class="form-label">Ввести Y:(значение от -5 до 5)</label>
-              <input type="text" name="y-val" id="y-val" placeholder="Введите число">
-              <br>
+              <label for="y-val">Введите Y от -5 до 5:</label>
+
+              <input
+                type="text"
+                id="y-val"
+                name="y-val"
+                pattern="-?(?:[0-4](?:[.,][0-9]+)?|5(?:[.,]0+)?)"
+                title="Введите число от -5 до 5"
+                placeholder="Например, -2,5"
+                required
+              />
+
               <span class="error-message" id="y-error"></span>
             </div>
 
+            <fieldset class="form-group">
+              <legend>Введите R</legend>
 
-            <div class="form-group">
-              <span class="form-label">Ввести R:</span>
               <div class="checkbox-group">
-                <label><input type="checkbox" name="r-val" value="1">1</label>
-                <label><input type="checkbox" name="r-val" value="1.5">1.5</label>
-                <label><input type="checkbox" name="r-val" value="2">2</label>
-                <label><input type="checkbox" name="r-val" value="2.5">2.5</label>
-                <label><input type="checkbox" name="r-val" value="3">3</label>
+                <label><input type="checkbox" name="r-val" value="1" />1</label>
+                <label><input type="checkbox" name="r-val" value="1.5" />1.5</label>
+                <label><input type="checkbox" name="r-val" value="2" />2</label>
+                <label><input type="checkbox" name="r-val" value="2.5" />2.5</label>
+                <label><input type="checkbox" name="r-val" value="3" />3</label>
               </div>
               <span class="error-message" id="r-error"></span>
+            </fieldset>
+
+            <div class="form-action">
+              <button type="submit" id="submit-btn">Получить результат</button>
+              <button type="button" id="clear-btn">Очистить таблицу</button>
             </div>
+          </form>
+        </section>
 
-            <div class="form-group">
-              <input type="submit" id="submit-btn" value="Получить результат">
-            </div>
+        <section id="content-right">
+          <h2>Координатная область</h2>
+          <canvas id="canvas">Ваш браузер не поддерживает canvas</canvas>
+        </section>
 
-            <div class="form-group">
-              <input type="button" id="clear-btn" value="Очистить таблицу">
-            </div>
-            
-            </form>
-          </div>
-
-        </td>
-        <td id="content-right">
-          <div class="canvas-block" >
-              <span class="canvas-label">Координатная область</span><br>
-          <canvas id="canvas" width="500" height="500">
-          </canvas>
-          </div>
-
-        </td>
-      </tr>
-      <tr>
-        <td id="history" colspan="2">
-          <h3>История проверок</h3>
-          
+        <section id="history">
+          <h2>История проверок</h2>
           <div id="scroll">
-          <table  id="result-table">
-            <thead>
-              <tr>
-                <th>X</th>
-                <th>Y</th>
-                <th>R</th>
-                <th>Попадание</th>
-                <th>Время</th>
-              </tr>
-            </thead>
-            <tbody id="result-body">
-            </tbody>
-          </table>
-          </div>
+            <table id="result-table">
+              <thead>
+                <tr>
+                  <th>X</th>
+                  <th>Y</th>
+                  <th>R</th>
+                  <th>Попадание</th>
+                  <th>Дата и время</th>
+                </tr>
+              </thead>
 
-        </td>
-      </tr>  
-    </tbody>
-  </table>
-  <script src="script.js"></script>
-</body>
+              <tbody id="result-body"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
 </html>
