@@ -1,134 +1,141 @@
-body {
-  background-color: rgb(239 237 237);
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  color: #333;
-  margin: 0;
-  padding: 0;
+* {
+  box-sizing: border-box;
 }
 
-#header > .student-info {
-  font-family: "Courier New", Courier, monospace;
-  color: #2c3e50;
-  font-size: 18px;
-  text-align: center;
-  padding: 1.5%;
-  background-color: #f8f9fa;
-  border: 1px solid #dee2e6;
+body {
+  margin: 0;
+  padding: 2%;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #222;
+  background-color: #f3f3f3;
 }
 
 #main-layout {
-  width: 100%;
-  box-shadow: 0 5px 5px rgb(0 0 0 / 10%);
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-#canvas {
-  width: 500px;
-  height: 500px;
-  border: 3px solid black;
-  margin: 40px;
+#header {
+  text-align: center;
+  padding: 2%;
+  margin-bottom: 2%;
+  font-family: monospace;
+  font-size: 18px;
+  color: #174875;
+  background-color: #e1edfa;
+  border: 1px solid #aaa;
 }
 
-.form-block,
-.canvas-block {
-  border: 1px solid black;
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.student-info {
+  line-height: 1.6;
+}
+
+#content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+#content > section {
+  min-width: 0;
+  padding: 5%;
   background-color: white;
+  border: 1px solid #aaa;
 }
 
-#content-left {
-  width: 50%;
-  vertical-align: top;
-  padding: 2.5%;
-}
-
-#content-right {
-  width: 50%;
-  vertical-align: top;
-  padding: 2.5%;
+#history {
+  grid-column: 1 / -1;
 }
 
 .form-group {
-  margin-bottom: 6%;
-  padding: 1%;
+  margin: 0 0 5%;
+  padding: 3%;
+  border: 1px solid #bbb;
 }
 
-.radio-group,
-.checkbox-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2%;
-}
-
-.radio-group label,
-.checkbox-group label {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  gap: 2%;
-}
-
-.form-label {
-  display: block;
+legend {
   font-weight: bold;
-  margin-bottom: 2%;
+}
+
+label {
+  display: inline-block;
+}
+
+input {
+  margin: 2%;
+}
+
+input,
+button {
+  font: inherit;
 }
 
 input[type="text"] {
   width: 90%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 2%;
+  border: 1px solid #777;
 }
 
-input[type="text"]:focus {
-  border-color: #3498db;
+.form-group > legend::after {
+  content: " *";
+  color: #b00020;
 }
 
-input#submit-btn,
-input#clear-btn {
-  background-color: #3498db;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
+input:focus {
+  outline: 2px solid #174875;
+  outline-offset: 2px;
+}
+
+input[type="text"]:invalid {
+  border-color: #b00020;
+}
+
+.error-message {
+  display: block;
+  color: #b00020;
+  font-size: 14px;
+}
+
+button {
+  margin: 1%;
+  padding: 3%;
+  border: 1px solid #174875;
+  background-color: #e1edfa;
+  color: #174875;
   cursor: pointer;
 }
 
-input#clear-btn:hover,
-input#submit-btn:hover {
-  background-color: #2980b9;
-  scale: 1.1;
+button:hover {
+  background-color: #c2daf3;
 }
 
-#result-table {
-  width: 100%;
-  border-collapse: collapse;
+button:focus {
+  outline: 2px solid #174875;
+  outline-offset: 2px;
 }
 
-#result-table th,
-result-table td {
-  border: 1px solid #000;
-  padding: 10px;
+#content-right {
   text-align: center;
 }
 
-#result-table th {
-  background-color: #f2f2f2;
-}
-
-#result-body tr,
-#result-body td {
-  border: 1px solid #000;
-  padding: 10px;
-  text-align: center;
+#canvas {
+  max-width: 100%;
+  height: auto;
 }
 
 #scroll {
-  width: 100%;
-  max-height: 250px;
-  overflow-y: auto;
-  border: 1px solid black;
+  max-height: 300px;
+  overflow: auto;
 }
 
 #result-table {
@@ -136,24 +143,21 @@ result-table td {
   border-collapse: collapse;
 }
 
-#result-table th,
-#result-table td {
-  border: 1px solid #ccc;
-  padding: 8px 12px;
+th,
+td {
+  padding: 10px;
+  border: 1px solid #aaa;
   text-align: center;
 }
 
-#history th {
-  background-color: #f5f5f5;
-  position: sticky;
-  top: 0;
+th {
+  background-color: #e1edfa;
 }
 
-.canvas-label {
-  display: block;
-  text-align: center;
-  font-weight: bold;
-  font-size: 18px;
-  margin-top: 2%;
-  margin-bottom: 1%;
+.hit-true {
+  color: #176b28;
+}
+
+.hit-false {
+  color: #b00020;
 }

@@ -36,8 +36,11 @@
                 <label> <input type="radio" name="x-val" value="4" />4</label>
               </div>
             </fieldset>
-            <div class="form-group">
-              <label for="y-val">Введите Y от -5 до 5:</label>
+
+            <fieldset class="form-group">
+              <legend>
+                <label for="y-val">Введите Y от -5 до 5:</label>
+              </legend>
 
               <input
                 type="text"
@@ -50,7 +53,7 @@
               />
 
               <span class="error-message" id="y-error"></span>
-            </div>
+            </fieldset>
 
             <fieldset class="form-group">
               <legend>Введите R</legend>
@@ -74,7 +77,7 @@
 
         <section id="content-right">
           <h2>Координатная область</h2>
-          <canvas id="canvas">Ваш браузер не поддерживает canvas</canvas>
+          <canvas id="canvas" width="400" height="400">Ваш браузер не поддерживает canvas</canvas>
         </section>
 
         <section id="history">
@@ -97,5 +100,6 @@
         </section>
       </main>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
